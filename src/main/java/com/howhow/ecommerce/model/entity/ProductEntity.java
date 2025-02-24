@@ -7,7 +7,7 @@ import lombok.Data;
 import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "favorite_theme")
+@Table(name = "product")
 @Data
 public class ProductEntity {
     @Id
@@ -15,19 +15,27 @@ public class ProductEntity {
     @Column(name = "product_id")
     private Integer productId;
 
-    @Column(name = "complete_status")
+    @Column(name = "product_name", nullable = false, length = 128)
     private String productName;
 
-    @Column(name = "complete_status")
-    private String category;
+    @Column(name = "category_url", nullable = false, length = 256)
+    private String categoryUrl;
 
+    @Column(name = "image_url", nullable = false, length = 256)
+    private String imageUrl;
+
+    @Column(name = "price", nullable = false)
     private Integer price;
+
+    @Column(name = "stock", nullable = false)
     private Integer stock;
+
+    @Column(name = "description", length = 1024)
     private String description;
 
-    @Column(name = "created_at")
-    private OffsetDateTime createdAt;
+    @Column(name = "created_date", nullable = false)
+    private OffsetDateTime createdDate;
 
-    @Column(name = "last_modified_at")
-    private OffsetDateTime lastModifiedAt;
+    @Column(name = "last_modified_date", nullable = false)
+    private OffsetDateTime lastModifiedDate;
 }
