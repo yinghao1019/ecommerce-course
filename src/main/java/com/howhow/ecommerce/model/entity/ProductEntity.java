@@ -18,8 +18,8 @@ public class ProductEntity {
     @Column(name = "product_name", nullable = false, length = 128)
     private String productName;
 
-    @Column(name = "category_url", nullable = false, length = 256)
-    private String categoryUrl;
+    @Column(name = "category", nullable = false, length = 256)
+    private String category;
 
     @Column(name = "image_url", nullable = false, length = 256)
     private String imageUrl;
