@@ -1,6 +1,7 @@
 package com.howhow.ecommerce.service.impl;
 
 import com.howhow.ecommerce.model.dto.ProductDTO;
+import com.howhow.ecommerce.model.dto.ProductRequestDTO;
 import com.howhow.ecommerce.model.entity.ProductEntity;
 import com.howhow.ecommerce.respository.ProductRepository;
 import com.howhow.ecommerce.service.ProductService;
@@ -24,7 +25,7 @@ public class ProductServiceImpl implements ProductService {
         ProductDTO productDTO = new ProductDTO();
         productDTO.setProductId(productEntity.getProductId());
         productDTO.setProductName(productEntity.getProductName());
-        productDTO.setCategoryUrl(productEntity.getCategory());
+        productDTO.setCategory(productEntity.getCategory());
         productDTO.setImageUrl(productEntity.getImageUrl());
         productDTO.setPrice(productEntity.getPrice());
         productDTO.setStock(productEntity.getStock());
@@ -32,5 +33,17 @@ public class ProductServiceImpl implements ProductService {
         productDTO.setCreatedDate(productEntity.getCreatedDate());
 
         return productDTO;
+    }
+
+    @Override
+    public Integer createProduct(ProductRequestDTO productDTO) throws Exception {
+        ProductEntity productEntity = new ProductEntity();
+        productEntity.setProductName(productDTO.getProductName());
+        productEntity.setCategory(productDTO.getCategory());
+        productEntity.setImageUrl(productDTO.getImageUrl());
+        productEntity.setPrice(productDTO.getPrice());
+        productEntity.setStock(productDTO.getStock());
+        productEntity.setDescription(productDTO.getDescription());
+        return productRepository.save(productEntity).getProductId();
     }
 }

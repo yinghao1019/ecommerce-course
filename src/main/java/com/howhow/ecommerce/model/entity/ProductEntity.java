@@ -1,5 +1,7 @@
 package com.howhow.ecommerce.model.entity;
 
+import com.howhow.ecommerce.constant.ProductCategoryEnum;
+
 import jakarta.persistence.*;
 
 import lombok.Data;
@@ -19,7 +21,7 @@ public class ProductEntity {
     private String productName;
 
     @Column(name = "category", nullable = false, length = 256)
-    private String category;
+    private ProductCategoryEnum category;
 
     @Column(name = "image_url", nullable = false, length = 256)
     private String imageUrl;
