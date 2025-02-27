@@ -1,7 +1,7 @@
 package com.howhow.ecommerce.service.impl;
 
 import com.howhow.ecommerce.model.entity.MemberEntity;
-import com.howhow.ecommerce.respository.MemberRepository;
+import com.howhow.ecommerce.dao.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

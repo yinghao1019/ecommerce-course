@@ -3,7 +3,7 @@ package com.howhow.ecommerce.service.impl;
 import com.howhow.ecommerce.model.dto.ProductDTO;
 import com.howhow.ecommerce.model.dto.ProductRequestDTO;
 import com.howhow.ecommerce.model.entity.ProductEntity;
-import com.howhow.ecommerce.respository.ProductRepository;
+import com.howhow.ecommerce.dao.ProductRepository;
 import com.howhow.ecommerce.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
