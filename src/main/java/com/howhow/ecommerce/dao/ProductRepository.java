@@ -1,4 +1,4 @@
-package com.howhow.ecommerce.respository;
+package com.howhow.ecommerce.dao;
 
 import com.howhow.ecommerce.model.entity.ProductEntity;
 
