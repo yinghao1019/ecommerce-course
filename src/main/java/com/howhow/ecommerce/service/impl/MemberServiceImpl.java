@@ -4,7 +4,9 @@ import com.howhow.ecommerce.dao.MemberRepository;
 import com.howhow.ecommerce.model.dto.MemberSignUpRequestDTO;
 import com.howhow.ecommerce.model.entity.MemberEntity;
 import com.howhow.ecommerce.service.MemberService;
+
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,10 +28,5 @@ public class MemberServiceImpl implements MemberService {
         memberEntity.setPassword(memberSignUpRequestDTO.getPassword());
         memberEntity.setAge(memberSignUpRequestDTO.getAge());
         memberRepository.save(memberEntity);
-    }
-
-    @Override
-    public void signOut() {
-
     }
 }

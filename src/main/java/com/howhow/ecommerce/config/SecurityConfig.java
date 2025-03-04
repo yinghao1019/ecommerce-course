@@ -21,8 +21,10 @@ public class SecurityConfig {
                         request ->
                                 request.requestMatchers("/members/signup")
                                         .permitAll()
+                                        .requestMatchers("/**")
+                                        .authenticated()
                                         .anyRequest()
-                                        .authenticated())
+                                        .denyAll())
                 .build();
     }
 
