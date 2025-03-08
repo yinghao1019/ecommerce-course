@@ -7,6 +7,7 @@ import com.howhow.ecommerce.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional
@@ -25,7 +27,7 @@ public class MemberServiceImpl implements MemberService {
         MemberEntity memberEntity = new MemberEntity();
         memberEntity.setName(memberSignUpRequestDTO.getName());
         memberEntity.setEmail(memberSignUpRequestDTO.getEmail());
-        memberEntity.setPassword(memberSignUpRequestDTO.getPassword());
+        memberEntity.setPassword(passwordEncoder.encode(memberSignUpRequestDTO.getPassword()));
         memberEntity.setAge(memberSignUpRequestDTO.getAge());
         memberRepository.save(memberEntity);
     }

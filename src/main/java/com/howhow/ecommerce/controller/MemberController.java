@@ -2,16 +2,18 @@ package com.howhow.ecommerce.controller;
 
 import com.howhow.ecommerce.model.dto.MemberSignUpRequestDTO;
 import com.howhow.ecommerce.service.MemberService;
+
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/members")
+@RequestMapping("/api/members")
 public class MemberController {
     private final MemberService memberService;
 
@@ -21,4 +23,10 @@ public class MemberController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/role")
+    public List<String> getRoles(Authentication authentication) {
+        return authentication.getAuthorities().stream()
+                .map(authority -> authority.getAuthority())
+                .toList();
+    }
 }
