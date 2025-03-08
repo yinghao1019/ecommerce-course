@@ -19,7 +19,7 @@ public class SecurityConfig {
                 .formLogin(Customizer.withDefaults())
                 .authorizeHttpRequests(
                         request ->
-                                request.requestMatchers("/members/signup")
+                                request.requestMatchers("/api/members/signup")
                                         .permitAll()
                                         .requestMatchers("/**")
                                         .authenticated()
