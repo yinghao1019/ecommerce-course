@@ -17,6 +17,7 @@ public class SecurityConfig {
         return http.csrf(csrf -> csrf.disable())
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())
+                .oauth2Login(Customizer.withDefaults())
                 .authorizeHttpRequests(
                         request ->
                                 request.requestMatchers("/api/members/signup")
